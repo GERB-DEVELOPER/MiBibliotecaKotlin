@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MiBiblioteca</string>
+    <string name="empty_library">No hay libros. ¡Añade uno!</string>
+    <string name="add_book">Añadir libro</string>
+</resources>
