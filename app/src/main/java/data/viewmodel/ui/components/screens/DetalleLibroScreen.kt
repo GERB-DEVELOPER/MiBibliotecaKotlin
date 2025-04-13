@@ -1,6 +1,6 @@
 package data.viewmodel.ui.components.screens
 
-
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Alignment
 import com.example.mibiblioteca.data.model.Libro
 import data.viewmodel.DetalleLibroViewModel
 
@@ -24,6 +25,7 @@ fun DetalleLibroScreen(
     onEditClick: (Int) -> Unit,
     viewModel: DetalleLibroViewModel
 ) {
+    // Carga el libro según el ID
     LaunchedEffect(libroId) {
         viewModel.loadLibro(libroId)
     }
@@ -31,6 +33,9 @@ fun DetalleLibroScreen(
     val libro by viewModel.libro.collectAsState()
 
     Scaffold(
+        // Fondo de pantalla según el tema
+        containerColor = MaterialTheme.colorScheme.background,
+        // Barra superior con colores del tema
         topBar = {
             TopAppBar(
                 title = { Text(text = libro?.titulo ?: "Detalle del libro") },
@@ -49,7 +54,13 @@ fun DetalleLibroScreen(
                             contentDescription = "Editar libro"
                         )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.smallTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                    actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+                )
             )
         }
     ) { paddingValues ->
@@ -61,13 +72,14 @@ fun DetalleLibroScreen(
                     .padding(16.dp)
             ) {
                 Text(
-                    text = libroData.titulo,
+                    text = "Vista General Del Libro",
                     style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
-
+                InfoRow(label = "Libro", value = libroData.titulo)
                 InfoRow(label = "Autor", value = libroData.autor)
                 InfoRow(label = "Editorial", value = libroData.editorial)
                 InfoRow(label = "Edición", value = libroData.edicion)
@@ -75,10 +87,14 @@ fun DetalleLibroScreen(
             }
         } ?: run {
             Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = androidx.compose.ui.Alignment.Center
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.surface),
+                contentAlignment = Alignment.Center
             ) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
         }
     }
@@ -86,17 +102,30 @@ fun DetalleLibroScreen(
 
 @Composable
 private fun InfoRow(label: String, value: String) {
-    Row(
+    Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp)
+            .padding(vertical = 4.dp),
+        shape = MaterialTheme.shapes.small,
+        tonalElevation = 1.dp,
+        color = MaterialTheme.colorScheme.surfaceVariant,            // fondo ligero
+        contentColor = MaterialTheme.colorScheme.onSurfaceVariant   // texto
     ) {
-        Text(
-            text = "$label:",
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.width(100.dp)
-        )
-        Text(text = value)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            Text(
+                text = "$label:",
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                modifier = Modifier.width(100.dp)
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
     }
 }
 
