@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.mibiblioteca.data.model.Libro
+import data.model.Libro
 
 /**
  * Componente reutilizable que muestra un item de libro en una lista

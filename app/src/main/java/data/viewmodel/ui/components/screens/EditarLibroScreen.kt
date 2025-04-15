@@ -13,7 +13,17 @@ import data.viewmodel.EditarLibroViewModel
 import data.viewmodel.ui.components.CustomTextField
 
 /**
- * Pantalla para editar o crear un libro
+ * Pantalla para editar o crear un libro.
+ *
+ * Muestra campos para:
+ * - Título
+ * - Autor
+ * - Editorial
+ * - Edición
+ * - Año de lanzamiento
+ *
+ * Valida los datos introducidos y, al guardar, notifica al ViewModel para persistir
+ * los cambios o la creación de un nuevo libro. También permite regresar a la pantalla anterior.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

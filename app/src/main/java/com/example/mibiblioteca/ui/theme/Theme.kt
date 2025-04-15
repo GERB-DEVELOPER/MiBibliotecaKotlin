@@ -7,6 +7,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
+
+/**
+  Archivo de tema de la aplicación MiBiblioteca.
+  Define los esquemas de colores para modos claro y oscuro,
+  y proporciona el composable MiBibliotecaTheme que aplica
+  MaterialTheme con el esquema de colores seleccionado,
+  la tipografía y el contenido de la UI.
+ */
+
+
+
 // ——— Light Color Scheme ———
 private val LightColorScheme = lightColorScheme(
     primary           = Color(0xFF4A90E2),

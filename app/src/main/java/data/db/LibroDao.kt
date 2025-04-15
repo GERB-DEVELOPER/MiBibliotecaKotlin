@@ -1,8 +1,14 @@
 package data.db
 
 import androidx.room.*
-import com.example.mibiblioteca.data.model.Libro
+import data.model.Libro
 import kotlinx.coroutines.flow.Flow
+
+
+/**
+Esta interfaz sirve para acceder a la tabla Libros de la DB SQLite
+y Define las operaciones que se pueden realizar.
+ */
 
 @Dao
 interface LibroDao {

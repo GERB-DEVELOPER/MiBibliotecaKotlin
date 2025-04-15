@@ -1,7 +1,7 @@
 package data.repository
 
 import data.db.LibroDao
-import com.example.mibiblioteca.data.model.Libro
+import data.model.Libro
 import kotlinx.coroutines.flow.Flow
 
 /**

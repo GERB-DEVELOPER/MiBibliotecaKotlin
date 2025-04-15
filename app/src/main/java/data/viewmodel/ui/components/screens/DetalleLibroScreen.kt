@@ -11,11 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
-import com.example.mibiblioteca.data.model.Libro
 import data.viewmodel.DetalleLibroViewModel
 
 /**
- * Pantalla que muestra el detalle de un libro
+  Pantalla que muestra la informacion de un libro especifico e i ncluye una barra superior con opciones para regresar o editar el libro,
+ y presenta los datos del libro en un diseño estructurado
+
+ la funcion: InfoRow se usa para mostrar una propiedad del libro.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

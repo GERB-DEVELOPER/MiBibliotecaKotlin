@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import data.db.AppDatabase
-import com.example.mibiblioteca.data.model.Libro
+import data.model.Libro
 import data.repository.LibroRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

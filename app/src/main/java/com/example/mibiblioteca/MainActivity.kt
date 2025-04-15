@@ -18,6 +18,17 @@ import data.viewmodel.ui.components.screens.DetalleLibroScreen
 import data.viewmodel.ui.components.screens.EditarLibroScreen
 import data.viewmodel.ui.components.screens.LibrosListScreen
 
+
+/**
+MainActivity es la actividad principal de la aplicación.
+Gestiona la interfaz de usuario, aplica el tema y define la navegación.
+
+Navegación con NavController:
+- Lista de libros (LibrosViewModel, LibrosListScreen)
+- Detalle de un libro (DetalleLibroViewModel, DetalleLibroScreen)
+- Edición de un libro (EditarLibroViewModel, EditarLibroScreen)
+ */
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
