@@ -17,13 +17,13 @@ import data.viewmodel.ui.components.LibroItem
 import data.viewmodel.LibrosViewModel
 
 /**
-  Pantalla que muestra la lista de libros disponibles en la base de datos.
+Pantalla que muestra la lista de libros disponibles en la base de datos.
 
-   Muestra un campo de búsqueda para filtrar los libros por título o autor.
-   Si no hay libros, muestra un mensaje indicando que la lista está vacía.
-   Si hay libros, los despliega en una lista desplazable (LazyColumn),
-   permitiendo hacer clic en un libro para ver su detalle o eliminarlo.
-   Incluye un FloatingActionButton para añadir un nuevo libro.
+Muestra un campo de búsqueda para filtrar los libros por título o autor.
+Si no hay libros, muestra un mensaje indicando que la lista está vacía.
+Si hay libros, los despliega en una lista desplazable (LazyColumn),
+permitiendo hacer clic en un libro para ver su detalle o eliminarlo.
+Incluye un FloatingActionButton para añadir un nuevo libro.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -99,4 +99,3 @@ fun LibrosListScreen(
         }
     }
 }
-
